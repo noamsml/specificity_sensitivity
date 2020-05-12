@@ -1,0 +1,25 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    font-size: 16pt;
+}
+
+label, .explain_output {
+    font-weight: bold;
+}
+
+input {
+    font-size: 16pt;
+    width: 4em;
+}
+
+.attribution {
+    color: #bbb;
+    font-size: 12pt;
+    font-style: italic;
+}
+
+.attribution a {
+    color: #888;
+}

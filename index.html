@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css" />
+        <script src="index.js"></script>
+        <title>Specificity and Sensitivity Translator</title>
+    </head>
+
+    <body>
+        <h1>Specificity and Sensitivity Translator</h1>
+
+        <p>Specificity and sensitivity are confusing words. Not only is it hard to remember which is which, it's hard to get a handle on what they mean, since the actual
+           probabilties are based the <b>prevalence</b> of the disease in society. This page is a minimal calculator. Given a test's specificity and sensitivity and assumed prevalence, 
+           it will tell you how likely you are to have the disease (or antibodies) if you get a positive or negative result.
+        </p>
+
+        <p><b>Caution: </b> This page was made by a total novice, based on advice from someone who knows stats but not medical research. Please don't make medical decisions based on the calculations on this page.</p>
+        
+        <p>Additionally, any input for assumed prevalence is inherently speculative. This introduces a lot of garbabe into these calculations.</p>
+
+        <form>
+            <div class="input"><label for="sensitivity">Sensitivity:</label> <input id="sensitivity" type="number" min="0" max="100" step="0.5" value="90.0" />%</div>
+            <div class="input"><label for="specificity">Specificity:</label> <input id="specificity" type="number" min="0" max="100" step="0.5" value="99.0" />%</div>
+            <div class="input"><label for="prevelance">Prevalence (what % of people have it):</label> <input id="prevelance" type="number" min="0" max="100" step="0.5" value="0.5" />%</div>
+            <div class="output"><span class="explain_output">Likelihood you have it, given a <em>positive</em> test:</span> <input type="number" readonly="true" id="positive_likelihood" />%</div>
+            <div class="output"><span class="explain_output">Likelihood you have it, given a <em>negative</em> test:</span> <input type="number" readonly="true" id="negative_likelihood" />%</div>
+        </form>
+
+        <p class="attribution">Created May 2020 by <a href="http://noam.horse">Noam Samuel</a> using formulae provided by Steve Schmitt.</p>
+        <p class="attribution">Stay safe. Stay healthy. Fuck Donald Trump.</p>
+    </body>
+</html>
