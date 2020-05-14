@@ -48,19 +48,51 @@
         }
     }
 
+    function updateUrlState() {
+        let sensitivity = $("sensitivity").value;
+        let specificity = $("specificity").value;
+        let prevelance = $("prevelance").value;
+
+        history.replaceState(null, "Specificity and Sensitivity Calculator", 
+            `?sensitivity=${sensitivity}&specificity=${specificity}&prevalence=${prevelance}`);
+    }
+
+    function parseUrlValues() {
+        let params = new URLSearchParams(window.location.search);
+
+        if (params.has("sensitivity")) {
+            $("sensitivity").value = params.get("sensitivity");
+        }
+
+        if (params.has("specificity")) {
+            $("specificity").value = params.get("specificity");
+        }
+
+        if (params.has("prevalence")) {
+            $("prevelance").value = params.get("prevalence");
+        }
+    }
+
+    function updateState() {
+        calculateOutputs();
+        updateUrlState();
+    }
+
 
     document.addEventListener("DOMContentLoaded", () => {
-        $("sensitivity").addEventListener("change", calculateOutputs);
-        $("specificity").addEventListener("change", calculateOutputs);
+        $("sensitivity").addEventListener("change", updateState);
+        $("specificity").addEventListener("change", updateState);
         $("prevelance").addEventListener("change", () => {
             lockPrevelance = true;
-            calculateOutputs();
+            updateState();
         });
 
         $("positive_percent").addEventListener("change", () => {
             lockPrevelance = false;
-            calculateOutputs();
+            updateState();
         });
+
+        parseUrlValues();
         calculateOutputs();
     });
 })()
